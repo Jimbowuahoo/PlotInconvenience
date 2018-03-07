@@ -9,12 +9,12 @@ public class LoadScene : MonoBehaviour {
     private int index = 0;
     public GameObject ui;
     private Text OptionsText;
-	// Use this for initialization
+
+	// Initialization
 	void Start () {
         OptionsText = ui.transform.Find("Options").Find("Text").GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -29,6 +29,7 @@ public class LoadScene : MonoBehaviour {
         Application.Quit();
     }
 
+    //cheaky text changes on the nonfunctional button
     public void ChangeText()
     {
         if (index == 0)

@@ -12,13 +12,13 @@ public class oneTimeDialogue : MonoBehaviour {
     private WorldManager world;
 
     public int dialogueIndex;
-    // Use this for initialization
+    
     void Start () {
         world = worldObject.GetComponent<WorldManager>();
         dialogue = dialogueObject.GetComponent<DialogueBox>();
     }
 	
-	// Update is called once per frame
+	
 	void Update () {
 		
 	}

@@ -12,14 +12,13 @@ public class CameraFollow : MonoBehaviour {
     public GameObject stageManagerObject;
     private StageManager stageManager;
 
-    // Use this for initialization
     void Start () {
         world = worldObject.GetComponent<WorldManager>();
         current = gameObject.GetComponent<Camera>();
         stageManager = stageManagerObject.GetComponent<StageManager>();
     }
 	
-	// Update is called once per frame
+	// Change camera mode based on current world State
 	void Update () {
 		if(!world.isRetro)
         {

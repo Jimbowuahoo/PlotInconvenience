@@ -16,7 +16,7 @@ public class WorldManager : MonoBehaviour {
     private AudioSource audioReg;
     private AudioSource audioRet;
 
-    // Use this for initialization
+    // Initialize Audio
     void Start () {
         player = playerObject.GetComponent<Player>();
         stageManager = stageManagerObject.GetComponent<StageManager>();
@@ -28,7 +28,7 @@ public class WorldManager : MonoBehaviour {
         audioReg.Play();
     }
 	
-	// Update is called once per frame
+	// Update Audio
 	void Update () {
         audioReg.clip = stageManager.currentStage.reg;
         audioRet.clip = stageManager.currentStage.ret;

@@ -39,7 +39,8 @@ public class Player : MonoBehaviour {
     private float moveH;
     private float moveV;
     private bool amIRetro;
-	// Use this for initialization
+	
+    // Get everything initialized
 	void Start () {
         rig = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour {
         CheckPickaxe();
     }
 
+    //for animation
     void FixedUpdate()
     {
         anim.SetBool("Retro", world.isRetro);
@@ -64,8 +66,8 @@ public class Player : MonoBehaviour {
         anim.SetBool("Moving", moveV != 0 || moveH != 0);
     }
 
-    // Update is called once per frame
     void Update () {
+        //lock character if dialogue is happening
         if(dialogue.isOn)
         {
             maxSpeed = 0;
@@ -75,8 +77,7 @@ public class Player : MonoBehaviour {
             maxSpeed = 7;
         }
 
-
-
+        //Get movement
         moveH = Input.GetAxis("Horizontal") * maxSpeed;
         moveV = Input.GetAxis("Vertical") * maxSpeed;
         rig.velocity = new Vector2(moveH, moveV);
@@ -102,6 +103,8 @@ public class Player : MonoBehaviour {
             }
 
         }
+
+        //Changing images
         if (world.isRetro)
         {
             pickaxeText.font = Resources.Load<Font>("kenpixel_mini_square");
@@ -116,8 +119,7 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        //print("Colliding");
-        
+        //interactions with different objects in the game
         if (other.tag == "Interactable")
         {
             if (!isInteracting)
@@ -374,7 +376,6 @@ public class Player : MonoBehaviour {
     {
         if (pickAxeNumber > 0)
         {
-            print("HasPickS");
             pickaxeText.text = "x" + pickAxeNumber.ToString();
             pickaxeImage.color = new Vector4(255, 255, 255, 255);
         }

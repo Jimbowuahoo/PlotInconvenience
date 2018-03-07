@@ -22,14 +22,14 @@ public class Interactable : MonoBehaviour {
     public int state = 0;
     private Vector2 location;
 
-	// Use this for initialization
+	// Initialize position and get world
 	void Start () {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         location = transform.position;
         world = worldObject.GetComponent<WorldManager>();
     }
 	
-	// Update is called once per frame
+	// Update the position of the interactable object
 	void Update () {
 
 		if (type == 3)
@@ -47,6 +47,7 @@ public class Interactable : MonoBehaviour {
             }
         }
 
+        //changing the interactable sprite
         if (world.isRetro)
         {
             spriteRenderer.sprite = ret;

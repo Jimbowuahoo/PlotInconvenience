@@ -45,7 +45,7 @@ public class DialogueBox : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
+	//Updating the dialogue box based on interactions
 	void Update () {
         
         if (isOn)
@@ -67,6 +67,7 @@ public class DialogueBox : MonoBehaviour {
         }
         gameObject.transform.position = new Vector3(main.transform.position.x, main.transform.position.y - 1.4f, 0);
         
+        //switching dialock with space button
         if (Input.GetKeyDown(KeyCode.Space) && isOn)
         {
             print(index);
@@ -100,6 +101,7 @@ public class DialogueBox : MonoBehaviour {
         textUI.font = currentFont;
     }
 
+    //New dialogue box with dialogue index
     public void TurnOn(int index)
     {
         string[] d = dList[index].lines;

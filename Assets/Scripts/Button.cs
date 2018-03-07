@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class for step-on buttons in the game
 public class Button : MonoBehaviour {
     public int type = 0;
     public GameObject doorObject;
@@ -21,7 +22,7 @@ public class Button : MonoBehaviour {
     private WorldManager world;
 
 
-    // Use this for initialization
+    //Initialize
     void Start () {
         door = doorObject.GetComponent<Interactable>();
         world = worldObject.GetComponent<WorldManager>();
@@ -30,7 +31,7 @@ public class Button : MonoBehaviour {
         soundGen = worldObject.transform.Find("SFX").GetComponent<AudioSource>();
     }
 	
-	// Update is called once per frame
+	// Updating the gamestate based on if the button is down
 	void Update () {
 		if (isDown)
         {
@@ -57,6 +58,7 @@ public class Button : MonoBehaviour {
         }
 	}
 
+    //Perform actions based on the Type of button (Blue, Red, Purple)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -135,6 +137,7 @@ public class Button : MonoBehaviour {
         
     }
 
+    //How is the button affected by staying on it?
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -156,6 +159,8 @@ public class Button : MonoBehaviour {
             }
         }
     }
+
+    //How is the button affected by exiting?
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (type != 0)

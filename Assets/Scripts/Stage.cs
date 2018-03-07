@@ -53,6 +53,7 @@ public class Stage : MonoBehaviour {
         }
     }
 
+    //reveal the stage on entering
     void OnPlayerEnter()
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
@@ -73,6 +74,7 @@ public class Stage : MonoBehaviour {
         }
     }
     
+    //switch between new and retro sprites
     public void ChangeSprite()
     {
         if (stageSprite == regSprite)
